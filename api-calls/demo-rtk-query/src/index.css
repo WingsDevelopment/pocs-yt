@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-bar {
+    @apply flex justify-around items-center h-16 bg-gray-800 text-green-300 relative shadow-sm font-mono;
+  }
+}
