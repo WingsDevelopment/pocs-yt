@@ -8,8 +8,26 @@ export const CalculatorState = () => {
   //can be: c(clear), +, -, *, /, =
   const [currentOperator, setCurrentOperator] = React.useState("");
 
-  const onSymbolClicked = (number) => {
-    setOtherCalculatorState(otherCalculatorState + number);
+  const onSymbolClicked = (symbol) => {
+    if (otherCalculatorState.includes(".") && symbol === ".") return;
+    setOtherCalculatorState(otherCalculatorState + symbol);
+  };
+
+  const onOperatorClicked = (operator) => {
+    //edge case 2
+    if (currentOperator === "") {
+      setMainCalculatorState(parseFloat(otherCalculatorState) || 0);
+    } else if (otherCalculatorState !== "") {
+      runCommand();
+    }
+    setOtherCalculatorState("");
+    setCurrentOperator(operator);
+  };
+
+  const onClearClicked = () => {
+    setMainCalculatorState("0");
+    setOtherCalculatorState("");
+    setCurrentOperator("");
   };
 
   const runCommand = () => {
@@ -46,23 +64,6 @@ export const CalculatorState = () => {
       default:
         window.alert("Please select a command");
     }
-  };
-
-  const onOperatorClicked = (operator) => {
-    //edge case 2
-    if (currentOperator === "") {
-      setMainCalculatorState(parseFloat(otherCalculatorState) || 0);
-    } else if (otherCalculatorState !== "") {
-      runCommand();
-    }
-    setOtherCalculatorState("");
-    setCurrentOperator(operator);
-  };
-
-  const onClearClicked = () => {
-    setMainCalculatorState("0");
-    setOtherCalculatorState("");
-    setCurrentOperator("");
   };
 
   return (

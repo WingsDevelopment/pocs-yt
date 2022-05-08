@@ -40,10 +40,14 @@ function reducer(state, action) {
     case ACTIONS.CLEAR:
       return { ...initialState };
     case ACTIONS.ADD_SYMBOL:
-      return {
-        ...state,
-        otherCalculatorState: state.otherCalculatorState + action.payload,
-      };
+      if (state.otherCalculatorState.includes(".") && action.payload === ".") {
+        return state;
+      } else {
+        return {
+          ...state,
+          otherCalculatorState: state.otherCalculatorState + action.payload,
+        };
+      }
     case ACTIONS.SET_CURRENT_OPERATOR:
       //copy state for code simplicity
       let newState = { ...state };
@@ -70,7 +74,7 @@ function reducer(state, action) {
   }
 }
 
-export const CalculatorReducer = () => {
+export const CalculatorWithReducer = () => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   const onSymbolClicked = (symbol) => {
