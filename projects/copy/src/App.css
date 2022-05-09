@@ -1,9 +1,15 @@
 .app-container {
-  margin: 5rem;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #83a4d4, #b6fbff);
+}
+
+.calculator-container {
   max-width: 500px;
   max-height: 800px;
+  margin: 5rem;
   background-color: #191b28;
-  border: 1px solid #2b2d42;
 }
 
 /* this is grid */
@@ -64,12 +70,25 @@
 
 /* some additional styles  */
 .calculator-header {
+  grid-column: 1/-1;
   display: flex;
-  align-items: center;
-  justify-content: center;
 
-  font-size: 250%;
-  color: white;
+  flex-direction: column;
+  align-items: flex-end;
+
+  color: #fff;
+  padding: 10px;
+  min-height: 110px;
+}
+
+.calculator-header .main-calculator-state {
+  font-size: 30px;
+}
+.calculator-header .current-operator {
+  font-size: 30px;
+}
+.calculator-header .other-calculator-state {
+  font-size: 40px;
 }
 
 .simple-hr {

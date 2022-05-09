@@ -16,7 +16,12 @@ export const CalculatorInitial = () => {
   return (
     <div>
       <section className="calculator-header">
-        <p>0</p>
+        <div>
+          <span className="main-calculator-state">0</span>
+          <span className="current-operator">+</span>
+        </div>
+
+        <div className="other-calculator-state">4</div>
       </section>
       <hr className="simple-hr" />
       <section className="calculator-grid">

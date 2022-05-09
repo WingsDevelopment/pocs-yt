@@ -21,7 +21,7 @@ export const CalculatorView = ({
           )}
         </div>
 
-        <span className="other-calculator-state">{otherCalculatorState}</span>
+        <div className="other-calculator-state">{otherCalculatorState}</div>
       </section>
       <hr className="simple-hr" />
       <section className="calculator-grid">

@@ -31,7 +31,7 @@ const calculateNewState = (currentState, otherState, operator) => {
 
 export const ACTIONS = {
   CLEAR: "CLEAR",
-  ADD_SYMBOL: "ADD_SYMBOL",
+  ADD_SYMBOL: "ADD_SYMBOL", //number or .
   SET_CURRENT_OPERATOR: "SET_CURRENT_OPERATOR",
 };
 

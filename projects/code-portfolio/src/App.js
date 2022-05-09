@@ -6,8 +6,10 @@ import { CalculatorWithReducer } from "./calculator/CalculatorWithReducer";
 function App() {
   return (
     <div className="app-container">
-      {/* <CalculatorInitial /> */}
-      <CalculatorState />
+      <div className="calculator-container">
+        {/* <CalculatorInitial /> */}
+        <CalculatorState />
+      </div>
     </div>
   );
 }

@@ -1,12 +1,12 @@
 import React from "react";
-import { ClearButton } from "../Buttons/ClearButton";
-import { OperatorButton } from "../Buttons/OperatorButton";
-import { SymbolComponent } from "../Buttons/SymbolButton";
+import { ClearButton } from "../buttons/ClearButton";
+import { OperatorButton } from "../buttons/OperatorButton";
+import { SymbolComponent } from "../buttons/SymbolButton";
 
 export const CalculatorView = ({
+  onClearClicked,
   onOperatorClicked,
   onSymbolClicked,
-  onClearClicked,
   mainCalculatorState,
   otherCalculatorState,
   currentOperator,
@@ -14,18 +14,23 @@ export const CalculatorView = ({
   return (
     <div>
       <section className="calculator-header">
-        {(currentOperator || !otherCalculatorState) && (
-          <p>{mainCalculatorState}</p>
-        )}
-        {currentOperator && <p>{currentOperator}</p>}
-        <p>{otherCalculatorState}</p>
+        <div>
+          <span className="main-calculator-state">{mainCalculatorState}</span>
+          {currentOperator && (
+            <span className="current-operator">{currentOperator}</span>
+          )}
+        </div>
+
+        <div className="other-calculator-state">{otherCalculatorState}</div>
       </section>
       <hr className="simple-hr" />
       <section className="calculator-grid">
+        {/* first row */}
         <ClearButton onClearClickedFn={onClearClicked} operator="c" />
         <OperatorButton onOperatorClickedFn={onOperatorClicked} operator="/" />
         <OperatorButton onOperatorClickedFn={onOperatorClicked} operator="*" />
         <OperatorButton onOperatorClickedFn={onOperatorClicked} operator="-" />
+        {/* second row */}
         <SymbolComponent content="7" onSymbolClickedFn={onSymbolClicked} />
         <SymbolComponent content="8" onSymbolClickedFn={onSymbolClicked} />
         <SymbolComponent content="9" onSymbolClickedFn={onSymbolClicked} />
@@ -34,12 +39,15 @@ export const CalculatorView = ({
           onOperatorClickedFn={onOperatorClicked}
           operator="+"
         />
+        {/* third row */}
         <SymbolComponent content="4" onSymbolClickedFn={onSymbolClicked} />
         <SymbolComponent content="5" onSymbolClickedFn={onSymbolClicked} />
         <SymbolComponent content="6" onSymbolClickedFn={onSymbolClicked} />
+        {/* fourth row */}
         <SymbolComponent content="1" onSymbolClickedFn={onSymbolClicked} />
         <SymbolComponent content="2" onSymbolClickedFn={onSymbolClicked} />
         <SymbolComponent content="3" onSymbolClickedFn={onSymbolClicked} />
+        {/* fifth row */}
         <OperatorButton
           additionalClass={"calc-btn-tall"}
           onOperatorClickedFn={onOperatorClicked}

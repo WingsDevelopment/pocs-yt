@@ -9,7 +9,7 @@ export const CalculatorState = () => {
   const [currentOperator, setCurrentOperator] = React.useState("");
 
   const onSymbolClicked = (symbol) => {
-    if (otherCalculatorState.contains(".") && symbol === ".") return;
+    if (otherCalculatorState.includes(".") && symbol === ".") return;
     setOtherCalculatorState(otherCalculatorState + symbol);
   };
 
