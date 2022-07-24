@@ -1,0 +1,24 @@
+.symbol-btn {
+  background-color: #1e2337;
+}
+.symbol-btn:hover {
+  background-color: #1e2e37;
+}
+
+.operator-btn {
+  background-color: #4eccdb;
+}
+.operator-btn:hover {
+  background-color: #4ebadb;
+}
+
+.calculator-button {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #191b28;
+  border-radius: 0.5rem;
+}
+.calculator-button:hover {
+  cursor: pointer;
+}

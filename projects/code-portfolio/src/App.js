@@ -1,14 +1,11 @@
 import "./App.css";
-import { CalculatorInitial } from "./calculator/CalculatorInitial";
-import { CalculatorState } from "./calculator/CalculatorState";
-import { CalculatorWithReducer } from "./calculator/CalculatorWithReducer";
+import { Calculator } from "./calculator/calculator/Calculator";
 
 function App() {
   return (
     <div className="app-container">
       <div className="calculator-container">
-        {/* <CalculatorInitial /> */}
-        <CalculatorState />
+        <Calculator />
       </div>
     </div>
   );

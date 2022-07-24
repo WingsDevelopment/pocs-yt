@@ -1,0 +1,11 @@
+/* magic happens here */
+.grid-item-tall {
+  grid-row: span 2 / auto;
+}
+.grid-item-wide {
+  grid-column: span 2 / auto;
+}
+
+.calculator-button-container {
+  margin: 0.6rem;
+}

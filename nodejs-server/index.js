@@ -95,17 +95,6 @@ app.get("/getAll", (req, res) => {
   }, delay);
 });
 
-app.get("/getByPage", (req, res) => {
-  setTimeout(() => {
-    const perPage = Number(req.query.perPage);
-    const page = Number(req.query.page);
-    const start = page * perPage;
-    const end = start + perPage;
-    const result = data.slice(start, end);
-    res.json(result);
-  }, delay);
-});
-
 app.get("/getTotalCount", (req, res) => {
   setTimeout(() => {
     res.json(data.length);
@@ -131,6 +120,17 @@ app.post("/create", (req, res, next) => {
     };
     data.push(newFruit);
     res.json(newFruit);
+  }, delay);
+});
+
+app.get("/getByPage", (req, res) => {
+  setTimeout(() => {
+    const perPage = Number(req.query.perPage);
+    const page = Number(req.query.page);
+    const start = page * perPage;
+    const end = start + perPage;
+    const result = data.slice(start, end);
+    res.json(result);
   }, delay);
 });
 

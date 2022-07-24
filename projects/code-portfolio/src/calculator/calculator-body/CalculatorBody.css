@@ -1,0 +1,7 @@
+/* this is grid */
+.calculator-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: 110px;
+}

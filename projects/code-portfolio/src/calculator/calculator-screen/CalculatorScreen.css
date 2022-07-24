@@ -1,0 +1,13 @@
+/* some additional styles  */
+.calculator-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  padding: 1rem;
+  min-height: 6rem;
+}
+
+.simple-hr {
+  margin: 2rem;
+}

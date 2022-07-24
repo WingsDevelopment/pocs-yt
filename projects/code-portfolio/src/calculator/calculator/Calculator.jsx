@@ -1,8 +1,8 @@
 import React from "react";
-import { CalculatorView } from "./CalculatorView";
+import CalculatorBody from "../calculator-body/CalculatorBody";
+import { CalculatorScreen } from "../calculator-screen/CalculatorScreen";
 
-export const CalculatorState = () => {
-  //warning: if you typing along, this will be refactored to userReducer
+export const Calculator = () => {
   const [mainCalculatorState, setMainCalculatorState] = React.useState(0);
   const [otherCalculatorState, setOtherCalculatorState] = React.useState("");
   //can be: c(clear), +, -, *, /, =
@@ -18,7 +18,7 @@ export const CalculatorState = () => {
     if (currentOperator === "") {
       setMainCalculatorState(parseFloat(otherCalculatorState) || 0);
     } else if (otherCalculatorState !== "") {
-      runCommand();
+      calculateNewState();
     }
     setOtherCalculatorState("");
     setCurrentOperator(operator);
@@ -30,7 +30,7 @@ export const CalculatorState = () => {
     setCurrentOperator("");
   };
 
-  const runCommand = () => {
+  const calculateNewState = () => {
     switch (currentOperator) {
       case "+":
         setMainCalculatorState(
@@ -51,7 +51,6 @@ export const CalculatorState = () => {
         //edge case 1
         if (parseFloat(otherCalculatorState) === 0) {
           window.alert("Can't divide by zero");
-          onClearClicked();
           return;
         }
         setMainCalculatorState(
@@ -62,18 +61,22 @@ export const CalculatorState = () => {
         setMainCalculatorState(parseFloat(otherCalculatorState));
         break;
       default:
-        window.alert("Please select a command");
+        window.alert("Please select a operator");
     }
   };
 
   return (
-    <CalculatorView
-      currentOperator={currentOperator}
-      mainCalculatorState={mainCalculatorState}
-      otherCalculatorState={otherCalculatorState}
-      onClearClicked={onClearClicked}
-      onOperatorClicked={onOperatorClicked}
-      onSymbolClicked={onSymbolClicked}
-    />
+    <div>
+      <CalculatorScreen
+        mainCalculatorState={mainCalculatorState}
+        currentOperator={currentOperator}
+        otherCalculatorState={otherCalculatorState}
+      />
+      <CalculatorBody
+        onSymbolClicked={onSymbolClicked}
+        onOperatorClicked={onOperatorClicked}
+        onClearClicked={onClearClicked}
+      />
+    </div>
   );
 };
